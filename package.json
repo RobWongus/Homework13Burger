@@ -1,0 +1,24 @@
+{
+  "name": "homework13burger",
+  "version": "1.0.0",
+  "description": "create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobWongus/Homework13Burger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobWongus/Homework13Burger/issues"
+  },
+  "homepage": "https://github.com/RobWongus/Homework13Burger#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.3",
+    "mysql": "^2.18.1"
+  }
+}
