@@ -7,8 +7,16 @@ let burgers = {
     });
 },
 
-insertOne: function(cb) {
-    orm.insertOne("burgers")
-}
+insertOne: function(columns, values, input, cb) {
+    orm.insertOne("burgers", columns, values, input, function(response){
+        cb(response);
+    });
+},
 //may change
-module.exports = burgers
+update: function(objColFals, condition, input, cb) { 
+    orm.updateOne("burgers", objColVals, condition, input, function(response) {
+        cb(response);
+    });
+}
+}
+module.exports = burgers;
