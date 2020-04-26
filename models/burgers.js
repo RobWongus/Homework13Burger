@@ -15,6 +15,7 @@ insertOne: function(columns, values, input, cb) {
 //may change
 update: function(objColFals, condition, input, cb) { 
     orm.updateOne("burgers", objColVals, condition, input, function(response) {
+        
         cb(response);
     });
 }

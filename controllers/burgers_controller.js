@@ -19,7 +19,26 @@ router.get("/burgers", function(request, response) {
 
 
 //Each burger in the waiting area also has a Devour it! button. When the user clicks it, the burger will move to the right side of the page.
+
 //post
+router.post("/burgers", function(request, response){
+    burgers.insertOne([
+        "burger_name", "devoured"
+    ],
+    [
+        request.body.burger_name, request.body.devoured
+    ],
+        function(result) {
+        response.json({ id: result.insertId });
+    });
+});
+
+router.put("/burgers/:id", function (request, response) {
+    burger.updateOne(request.params.id, function (result){
+        response.sendStatus(200);
+    });
+});
+
 
 
 //update to move butgers to the right

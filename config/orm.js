@@ -21,14 +21,14 @@ function objToSql(ob) {
 const orm = {
 selectAll: function(tableInput, cb) {
     let queryString = "SELECT * FROM " + tableInput + ";";
-    console.log(queryString);
+    // console.log(queryString);
     connection.query(queryString, function(error, result) {
         if (error) {
-            console.log(error);
+            // console.log(error);
             throw error;
             
         }
-        console.log(result);
+        // console.log(result);
         cb(result);
     });
 },
@@ -45,14 +45,15 @@ insertOne: function(tableInput, columns, values, cb) {
     connection.query(queryString, [userInput], function(error, result) {
         if (error) 
             throw error;
-            console.log(response);
+            // console.log(response);
     });
+        // console.log(result)
         cb(result)
 },
 
 
 //update moves the burger
-updateOne: function(tableInput,objColVals, condition, cd) {
+updateOne: function(tableInput,objColVals, condition, cb) {
     let queryString = "UPDATE " + tableInput;
     
     queryString += " SET ";
@@ -69,4 +70,4 @@ updateOne: function(tableInput,objColVals, condition, cd) {
 
 };
 
-module.exports = orm
+module.exports = orm;
