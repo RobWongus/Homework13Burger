@@ -8,7 +8,7 @@ let router = express.Router();
 
 //Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
 router.get("/burgers", function(request, response) {
-    burgers.selectAll(function(data){
+    burgers.selectAll(function(data) {
         let hbsObject =  {
             burgers: data
         };
@@ -21,7 +21,7 @@ router.get("/burgers", function(request, response) {
 //Each burger in the waiting area also has a Devour it! button. When the user clicks it, the burger will move to the right side of the page.
 
 //post
-router.post("/burgers", function(request, response){
+router.post("/api/burgers", function(request, response){
     burgers.insertOne([
         "burger_name", "devoured"
     ],
@@ -33,8 +33,12 @@ router.post("/burgers", function(request, response){
     });
 });
 
-router.put("/burgers/:id", function (request, response) {
-    burger.update(request.params.id, function (result){
+router.put("api/burgers/:id", function (request, response) {
+    let condition = "id = " + request.params.id; 
+    burger.updateOne({
+        devoured: request.body.devoured
+    },
+    condition, function (result){
         if (result,changedRows == 0) {
             return result.status(404).end();
         } else {

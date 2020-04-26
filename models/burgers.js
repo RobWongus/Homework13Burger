@@ -1,23 +1,23 @@
 const orm = require("../config/orm");
 //see git hub model setup
 let burgers = {
-    selectAll: function(cb) {
-    orm.selectAll("burgers", function(response) {
-    cb(response);
+    selectAll: function(callback) {
+    orm.selectAll("burgers", function(result) {
+    callback(result);
     });
 },
 
-insertOne: function(columns, values, input, cb) {
-    orm.insertOne("burgers", columns, values, input, function(response){
-        cb(response);
+    insertOne: function(columns, values, callback) {
+    orm.insertOne("burgers", columns, values, function(result) {
+        callback(result);
     });
 },
 //may change
-update: function(objColFals, condition, input, cb) { 
-    orm.updateOne("burgers", objColVals, condition, input, function(response) {
+    updateOne: function(objColVals, condition, callback) { 
+    orm.updateOne("burgers", objColVals, condition, function(result) {
         
-        cb(response);
-    });
-}
+            callback(result);
+        });
+    }
 }
 module.exports = burgers;

@@ -19,52 +19,52 @@ function objToSql(ob) {
 
 
 const orm = {
-selectAll: function(tableInput, cb) {
-    let queryString = "SELECT * FROM " + tableInput + ";";
-    // console.log(queryString);
-    connection.query(queryString, function(error, result) {
+selectAll: function(tableInput, callback) {
+    let query = "SELECT * FROM " + tableInput + ";";
+    // console.log(query);
+    connection.query(query, function(error, result) {
         if (error) {
             // console.log(error);
             throw error;
             
         }
         // console.log(result);
-        cb(result);
+        callback(result);
     });
 },
 
-insertOne: function(tableInput, columns, values, cb) {
-    let queryString= "INSERT INTO " + tableInput + "?";
+insertOne: function(tableInput, columns, values, callback) {
+    let query= "INSERT INTO " + tableInput + "?";
     
-    queryString += " ("; 
-    queryString += columns.toString();
-    queryString += ") ";
-    queryString += "VALUES ("
-    queryString += printQuestionMarks(values.length);
-    queryString += ") ";
-    connection.query(queryString, [userInput], function(error, result) {
+    query += " ("; 
+    query += columns.toString();
+    query += ") ";
+    query += "VALUES ("
+    query += printQuestionMarks(values.length);
+    query += ") ";
+    connection.query(query, values, function(error, result) {
         if (error) 
             throw error;
             // console.log(response);
     });
         // console.log(result)
-        cb(result)
+        callback(result)
 },
 
 
 //update moves the burger
-updateOne: function(tableInput,objColVals, condition, cb) {
-    let queryString = "UPDATE " + tableInput;
+updateOne: function(tableInput,objColVals, condition, callback) {
+    let query = "UPDATE " + tableInput;
     
-    queryString += " SET ";
-    queryString += objToSql(objColVals);
-    queryString += " WHERE ";
-    queryString += condition
-    connection.query(queryString, function(error, result) {
+    query += " SET ";
+    query += objToSql(objColVals);
+    query += " WHERE ";
+    query += condition
+    connection.query(query, function(error, result) {
         if (error) {
             throw error;
         }
-        cb(result);
+        callback(result);
     });
 }
 
