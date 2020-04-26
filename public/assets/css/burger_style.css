@@ -12,4 +12,27 @@ h2 {
 
 ul {
     text-align: center;
+    padding-right: 1cm;
 }
+
+img {
+    align-content: center;
+    height: 400px;
+    width: 400;
+}
+
+
+.btn {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.create-form {
+    text-align: center;
+} 
+
+.submit {
+    align-items: center;
+}
+

@@ -34,8 +34,12 @@ router.post("/burgers", function(request, response){
 });
 
 router.put("/burgers/:id", function (request, response) {
-    burger.updateOne(request.params.id, function (result){
+    burger.update(request.params.id, function (result){
+        if (result,changedRows == 0) {
+            return result.status(404).end();
+        } else {
         response.sendStatus(200);
+        }
     });
 });
 
