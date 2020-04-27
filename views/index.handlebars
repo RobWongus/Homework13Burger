@@ -1,42 +1,57 @@
-<h1>Where's A Burger</h1>
 
-<div>
-<img src="assets/img/smilingburger.png" alt ="burgers" height="50px" width="50px">
+
+<div class="columns is-centered">
+    <div class="column is-one-third ">
+    <h1 class="has-text-centered is-size-1">Where'sABurger!</h1>
+    <figure class="image container">
+      <img src="assets/img/smilingburger.png" alt="Burger">
+    </figure>
+  </div>
 </div>
 
-<h2>Give Me My Burger!</h2>
+<div class="columns is-4">
+  <div class="column">
+    <h2 class="is-size-2 has-text-centered">Let's Eat!</h2>
 
-
-
-<ul>
-  {{#each burgers}}
-      {{#unless devoured}}
-        <!-- this is how you call a partial template:  {{> -->
-        <!-- also, you'll need a burgers folder in layouts and a burger-block.handlebars -->
-        <!-- i suspect you are using the 13-MVC/16-MvcExample app? Yup- Rob--> 
-        {{> burgers/burger-block devoured=false}}
-      {{/unless}}
-  {{/each}}
-</ul>
-
-
-
-<h2>Have A Burger!</h2>
-
-                                
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burger">Burger Name:</label>
-    <input type="text" id="burger" name="burger_name">
+    <ul>
+      {{#each burgers}}
+        {{#unless devoured}}
+            {{> burgers/burger-block devoured=false}}
+        {{/unless}}
+      {{/each}}
+    </ul>
   </div>
 
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Not Devoured
+  <div class="column">
+    <h2 class="is-size-2 has-text-centered">Add A Burger</h2>
+    <form class="create-form">
+
+    <div class="form-group">
+      <label for="burgers">Burger Name:</label>
+      <input type="text" id="burger" name="burger_name">
+    </div>
+
+    <div class="form-group">
+      <label for="devoured">Devoured?</label><br>
+      <input type="radio" name="devoured" value="1" checked> Devoured!<br>
+      <input type="radio" name="devoured" value="0"> Not Devoured
+    </div>
+
+    <button type="submit" class="button is-primary">Add Burger</button>
+   </form>
+
   </div>
 
 
-  <button type="submit">submit</button>
-</form>
+  <div class="column">
+    <h2 class="is-size-2 has-text-centered">Devoured!</h2>
+
+    <ul>
+      {{#each burgers}}
+        {{#if devoured}}
+            {{> burgers/burger-block devoured=true}}
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>

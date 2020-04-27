@@ -48,3 +48,10 @@ $.ajax("/api/burgers", {
 
 });
 
+function reverseBoolean(boolean) {
+    if (boolean == true) {
+      return false;
+    } else {
+      return true;
+    }
+  }
