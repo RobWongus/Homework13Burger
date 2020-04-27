@@ -1,7 +1,7 @@
 <h1>Where's A Burger</h1>
 
 <div>
-<img src="/public/assets/img/smilingburger.png" alt ="burgers">
+<img src="assets/img/smilingburger.png" alt ="burgers" height="50px" width="50px">
 </div>
 
 <h2>Give Me My Burger!</h2>
@@ -11,7 +11,10 @@
 <ul>
   {{#each burgers}}
       {{#unless devoured}}
-        {{burgers.burger-block devoured=false}}
+        <!-- this is how you call a partial template:  {{> -->
+        <!-- also, you'll need a burgers folder in layouts and a burger-block.handlebars -->
+        <!-- i suspect you are using the 13-MVC/16-MvcExample app? --> 
+        {{> burgers/burger-block devoured=false}}
       {{/unless}}
   {{/each}}
 </ul>
