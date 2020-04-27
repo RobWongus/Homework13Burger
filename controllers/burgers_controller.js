@@ -29,6 +29,7 @@ router.post("/api/burgers", function(request, response){
         request.body.burger_name, request.body.devoured
     ],
         function(result) {
+            console.log("RAWWR", result);
         response.json({ id: result.insertId });
     });
 });
